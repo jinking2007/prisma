@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Plant for Earth | Reforestation &amp; Climate Action</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* ---------- Reset & Base ---------- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fcf5;
+            color: #1e2f1e;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #2b7a3b;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(43, 122, 59, 0.35);
+        }
+
+        .btn-primary:hover {
+            background: #1f5f2d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(43, 122, 59, 0.45);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2b7a3b;
+            border: 2px solid #2b7a3b;
+        }
+
+        .btn-outline:hover {
+            background: #2b7a3b;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .btn-white {
+            background: #fff;
+            color: #2b7a3b;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+        }
+
+        .btn-white:hover {
+            background: #f0f8ee;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ---------- Header / Navbar ---------- */
+        header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 30, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 14px 0;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1e4a2a;
+        }
+
+        .logo i {
+            color: #2b7a3b;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #2d4a2d;
+        }
+
+        .nav-links a {
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2.5px;
+            background: #2b7a3b;
+            transition: width 0.25s ease;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            color: #1b5e2a;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-cta .btn {
+            padding: 10px 24px;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile menu toggle (hidden on desktop) */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: #1e4a2a;
+            cursor: pointer;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            background: linear-gradient(135deg, #e8f5e5 0%, #d4edcf 100%);
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: -10%;
+            bottom: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(43, 122, 59, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #0f2f0f;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #2b7a3b;
+            position: relative;
+        }
+
+        .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 6px;
+            width: 100%;
+            height: 14px;
+            background: rgba(43, 122, 59, 0.15);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #2f4a2f;
+            max-width: 500px;
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 2px solid rgba(43, 122, 59, 0.15);
+        }
+
+        .hero-stat-item {
+            text-align: left;
+        }
+
+        .hero-stat-item .number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #1e5e2e;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-stat-item .label {
+            font-size: 0.9rem;
+            color: #3d5a3d;
+            font-weight: 500;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image .illustration {
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 1 / 0.9;
+            background: linear-gradient(145deg, #cde6c7, #b3d8ab);
+            border-radius: 40% 60% 40% 60% / 50% 40% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10rem;
+            color: #1f5f2d;
+            box-shadow: 0 30px 60px rgba(43, 122, 59, 0.15);
+            position: relative;
+        }
+
+        .hero-image .illustration i {
+            filter: drop-shadow(0 10px 20px rgba(0, 30, 0, 0.10));
+        }
+
+        /* ---------- Section Titles ---------- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-title h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #0f2f0f;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #3d5a3d;
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title .accent-line {
+            width: 70px;
+            height: 4px;
+            background: #2b7a3b;
+            border-radius: 4px;
+            margin: 16px auto 0;
+        }
+
+        /* ---------- About / Why Trees ---------- */
+        .about {
+            padding: 90px 0 70px;
+            background: #ffffff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0f2f0f;
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            color: #2f4a2f;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-text .check-list {
+            margin-top: 24px;
+        }
+
+        .about-text .check-list li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: #1e3a1e;
+        }
+
+        .about-text .check-list li i {
+            color: #2b7a3b;
+            font-size: 1.2rem;
+            width: 28px;
+            text-align: center;
+        }
+
+        .about-image {
+            background: #e4f1e0;
+            border-radius: 32px;
+            padding: 20px 20px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            min-height: 360px;
+            box-shadow: 0 20px 40px rgba(0, 30, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image .tree-icon {
+            font-size: 12rem;
+            color: #1f5f2d;
+            opacity: 0.9;
+            transform: scale(1.1);
+        }
+
+        .about-image .leaf-deco {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 5rem;
+            color: rgba(43, 122, 59, 0.10);
+            transform: rotate(25deg);
+        }
+
+        /* ---------- Benefits ---------- */
+        .benefits {
+            padding: 90px 0;
+            background: #f7fcf5;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .benefit-card {
+            background: #ffffff;
+            padding: 40px 30px 36px;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(0, 30, 0, 0.04);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(43, 122, 59, 0.06);
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 50px rgba(43, 122, 59, 0.08);
+            border-color: rgba(43, 122, 59, 0.15);
+        }
+
+        .benefit-card .icon {
+            font-size: 3.2rem;
+            color: #2b7a3b;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: #eaf5e7;
+            padding: 16px;
+            border-radius: 20px;
+            line-height: 1;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0f2f0f;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            color: #3d5a3d;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        /* ---------- Stats / Impact ---------- */
+        .impact {
+            padding: 70px 0 80px;
+            background: #1e4a2a;
+            color: #fff;
+        }
+
+        .impact .section-title h2 {
+            color: #fff;
+        }
+
+        .impact .section-title p {
+            color: #c4dec2;
+        }
+
+        .impact .section-title .accent-line {
+            background: #8bc98e;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .impact-item {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 32px 16px;
+            border-radius: 24px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: background 0.3s;
+        }
+
+        .impact-item:hover {
+            background: rgba(255, 255, 255, 0.10);
+        }
+
+        .impact-item .number {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+            letter-spacing: -1px;
+            color: #a8e0a8;
+        }
+
+        .impact-item .label {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #d0ead0;
+            margin-top: 6px;
+        }
+
+        /* ---------- CTA ---------- */
+        .cta-section {
+            padding: 90px 0;
+            background: linear-gradient(135deg, #e8f5e5, #d4edcf);
+        }
+
+        .cta-box {
+            background: #1e4a2a;
+            border-radius: 48px;
+            padding: 70px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(30, 74, 42, 0.20);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '🌳';
+            position: absolute;
+            right: -30px;
+            bottom: -30px;
+            font-size: 14rem;
+            opacity: 0.06;
+            transform: rotate(-8deg);
+        }
+
+        .cta-box h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: #c4dec2;
+            font-size: 1.2rem;
+            max-width: 540px;
+            margin-bottom: 36px;
+        }
+
+        .cta-box .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-box .btn-white {
+            background: #fff;
+            color: #1e4a2a;
+            font-weight: 700;
+        }
+
+        .cta-box .btn-white:hover {
+            background: #f0f8ee;
+        }
+
+        .cta-box .btn-outline-light {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+        }
+
+        .cta-box .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: #fff;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            background: #0f2a0f;
+            color: #b8d4b5;
+            padding: 50px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            color: #b8d4b5;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand .logo i {
+            color: #8bc98e;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            max-width: 280px;
+            line-height: 1.7;
+            color: #9bbf98;
+        }
+
+        .footer-col h5 {
+            color: #e2f5e0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #9bbf98;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: #d0ead0;
+        }
+
+        .footer-col .social-links {
+            display: flex;
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .footer-col .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: #b8d4b5;
+            font-size: 1.2rem;
+            transition: all 0.25s;
+        }
+
+        .footer-col .social-links a:hover {
+            background: #2b7a3b;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7aa878;
+        }
+
+        .footer-bottom span {
+            color: #8bc98e;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stat {
+                justify-content: center;
+            }
+
+            .hero-image .illustration {
+                max-width: 400px;
+                font-size: 7rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-text .check-list li {
+                justify-content: center;
+            }
+
+            .about-image {
+                min-height: 260px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+                padding: 20px 0 10px;
+                border-top: 1px solid rgba(0, 0, 0, 0.04);
+                margin-top: 14px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-stat {
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+            }
+
+            .hero-stat-item {
+                text-align: center;
+            }
+
+            .hero-image .illustration {
+                max-width: 280px;
+                font-size: 5rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .cta-box {
+                padding: 40px 24px;
+                border-radius: 32px;
+            }
+
+            .cta-box h2 {
+                font-size: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .impact-item .number {
+                font-size: 2.2rem;
+            }
+
+            .cta-box h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HEADER ====== -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+                <span>PlantEco</span>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="#cta" class="btn btn-primary">Get Involved</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====== HERO ====== -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Plant a Tree, <br><span>Heal the Earth</span></h1>
+                <p>
+                    Every tree planted is a step toward a greener, cleaner future.
+                    Join the movement to restore forests, fight climate change,
+                    and protect biodiversity for generations to come.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#cta" class="btn btn-primary">
+                        <i class="fas fa-tree" style="margin-right: 10px;"></i> Plant Now
+                    </a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-item">
+                        <span class="number">1.2B+</span>
+                        <div class="label">Trees planted globally</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="number">200+</span>
+                        <div class="label">Active reforestation projects</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="number">85+</span>
+                        <div class="label">Countries involved</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="illustration">
+                    <i class="fas fa-tree"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ABOUT ====== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Trees Matter</h2>
+                <p>Forests are the lungs of our planet. Here’s why we must protect and restore them.</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Every tree makes a difference</h3>
+                    <p>
+                        Trees absorb carbon dioxide, release oxygen, and provide habitat
+                        for countless species. They clean our air, filter our water,
+                        and cool our cities. Reforestation is one of the most effective
+                        and natural ways to combat climate change.
+                    </p>
+                    <p>
+                        By planting trees, we invest in a sustainable future — for
+                        wildlife, for our communities, and for the health of the planet.
+                    </p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle"></i> Absorb CO₂ &amp; release oxygen</li>
+                        <li><i class="fas fa-check-circle"></i> Prevent soil erosion &amp; protect water</li>
+                        <li><i class="fas fa-check-circle"></i> Support biodiversity &amp; wildlife</li>
+                        <li><i class="fas fa-check-circle"></i> Reduce urban heat islands</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <span class="leaf-deco"><i class="fas fa-leaf"></i></span>
+                    <div class="tree-icon"><i class="fas fa-tree"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== BENEFITS ====== -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Benefits of Reforestation</h2>
+                <p>From climate regulation to community wellbeing — trees give back in countless ways.</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-wind"></i></div>
+                    <h4>Cleaner Air</h4>
+                    <p>
+                        Trees filter harmful pollutants and produce the oxygen we breathe,
+                        improving air quality in cities and rural areas alike.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-water"></i></div>
+                    <h4>Water Conservation</h4>
+                    <p>
+                        Forest canopies capture rainwater and reduce runoff, replenishing
+                        groundwater and keeping rivers and streams clean.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-paw"></i></div>
+                    <h4>Wildlife Habitat</h4>
+                    <p>
+                        Healthy forests provide food, shelter, and breeding grounds for
+                        thousands of species, preserving biodiversity.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-temperature-low"></i></div>
+                    <h4>Climate Cooling</h4>
+                    <p>
+                        Through evapotranspiration and shade, trees lower temperatures,
+                        reducing the urban heat island effect and energy costs.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>Community Wellbeing</h4>
+                    <p>
+                        Green spaces improve mental health, encourage outdoor activity,
+                        and strengthen community bonds.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-seedling"></i></div>
+                    <h4>Soil Restoration</h4>
+                    <p>
+                        Tree roots bind soil, preventing erosion and landslides while
+                        enriching the earth with organic matter.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== IMPACT STATS ====== -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Global Impact</h2>
+                <p>Together, we are making a measurable difference. Here’s what we’ve achieved so far.</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <span class="number">18.4M</span>
+                    <span class="label">Trees planted in 2025</span>
+                </div>
+                <div class="impact-item">
+                    <span class="number">2.3M</span>
+                    <span class="label">Acres of forest restored</span>
+                </div>
+                <div class="impact-item">
+                    <span class="number">4.6M</span>
+                    <span class="label">Tonnes of CO₂ absorbed</span>
+                </div>
+                <div class="impact-item">
+                    <span class="number">1,200+</span>
+                    <span class="label">Partner communities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Be Part of the Solution</h2>
+                <p>
+                    Every tree counts. Donate, volunteer, or start your own reforestation
+                    project today. Together we can restore the green heart of our planet.
+                </p>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-white">
+                        <i class="fas fa-donate" style="margin-right: 10px;"></i> Donate Now
+                    </a>
+                    <a href="#" class="btn btn-outline-light">
+                        <i class="fas fa-hands-helping" style="margin-right: 10px;"></i> Volunteer
+                    </a>
+                    <a href="#" class="btn btn-outline-light">
+                        <i class="fas fa-leaf" style="margin-right: 10px;"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-seedling"></i>
+                        <span>PlantEco</span>
+                    </div>
+                    <p>
+                        Empowering individuals and communities to reforest the world.
+                        Every tree planted is a promise to the future.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#cta">Get Involved</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="#">Tree Planting Guide</a></li>
+                        <li><a href="#">Volunteer Handbook</a></li>
+                        <li><a href="#">Research &amp; Reports</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-envelope" style="margin-right: 8px;"></i> hello@planteco.org</a></li>
+                        <li><a href="#"><i class="fas fa-phone" style="margin-right: 8px;"></i> +1 (800) 555-TREE</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 <span>PlantEco</span> — All rights reserved. &nbsp;|&nbsp; Made with <i class="fas fa-heart" style="color: #8bc98e;"></i> for our planet.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====== MOBILE MENU TOGGLE ====== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('menuToggle');
+            const nav = document.getElementById('navLinks');
+
+            toggle.addEventListener('click', function() {
+                nav.classList.toggle('open');
+                // Change icon
+                const icon = toggle.querySelector('i');
+                if (nav.classList.contains('open')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+
+            // Close menu when a link is clicked (on mobile)
+            nav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('open');
+                    const icon = toggle.querySelector('i');
+                    icon.className = 'fas fa-bars';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
